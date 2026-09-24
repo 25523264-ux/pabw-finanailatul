@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rak Buku Fina</title>
+</head>
+<body>
+  <header>
+    <h1>Rak Buku Fina</h1>
+
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#daftar-buku">Daftar Buku</a></li>
+        <li><a href="#tambah-buku">Tambah Buku</a></li>
+        <li><a href="#tentang-saya">Tentang Saya</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="daftar-buku">
+      <h2>Daftar Buku</h2>
+
+      <figure>
+        <img
+          src="koleksi_buku.jpg"
+          alt="Koleksi buku yang fina miliki"
+          width="640"
+          height="360"
+          loading="lazy"
+        >
+        <figcaption>Koleksi buku yang saya miliki</figcaption>
+      </figure>
+
+      <p>Berikut adalah daftar buku yang saya miliki beserta status bacanya.</p>
+
+      <table>
+        <caption>Daftar buku yang saya miliki</caption>
+        <thead>
+          <tr>
+            <th scope="col">Judul</th>
+            <th scope="col">Penulis</th>
+            <th scope="col">Tahun Terbit</th>
+            <th scope="col">Status Baca</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">Laskar Pelangi</th>
+            <td>Andrea Hirata</td>
+            <td>2005</td>
+            <td>Sudah Dibaca</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Bumi</th>
+            <td>Tere Liye</td>
+            <td>2014</td>
+            <td>Sudah Dibaca</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Filosofi Teras</th>
+            <td>Henry Manampiring</td>
+            <td>2018</td>
+            <td>Belum Dibaca</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="tambah-buku">
+      <h2>Tambah Buku</h2>
+
+      <form action="/simpan" method="post">
+        <p>
+          <label for="judul">Judul</label>
+          <input
+            type="text"
+            id="judul"
+            name="judul"
+            required
+          >
+        </p>
+
+        <p>
+          <label for="penulis">Penulis</label>
+          <input
+            type="text"
+            id="penulis"
+            name="penulis"
+            required
+          >
+        </p>
+
+        <p>
+          <label for="status-baca">Status Baca</label>
+          <select
+            id="status-baca"
+            name="status-baca"
+            required
+          >
+            <option value="">-- Pilih Status --</option>
+            <option value="sudah-dibaca">Sudah Dibaca</option>
+            <option value="sedang-dibaca">Sedang Dibaca</option>
+            <option value="belum-dibaca">Belum Dibaca</option>
+          </select>
+        </p>
+
+        <button type="submit">Simpan Buku</button>
+      </form>
+    </section>
+
+    <section id="tentang-saya">
+      <h2>Tentang Saya</h2>
+      <p>
+        Halaman ini berisi koleksi buku yang saya miliki dan status baca
+        dari setiap buku.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fina Nailatul 'Izzah · 25523264 · 2026</p>
+  </footer>
+</body>
+</html>
