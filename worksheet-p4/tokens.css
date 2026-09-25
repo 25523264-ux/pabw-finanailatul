@@ -1,0 +1,29 @@
+/* LAPIS 1 — primitif: nilai mentah */
+
+:root {
+  --plum-900: #30072C;
+  --plum-700: #631157;
+
+  --pink-50: #F7E0EF;
+  --pink-100: #ECC1ED;
+
+  --neutral-50: #FFF8F4;
+
+  --purple-300: #C77ED5;
+
+  --red-500: #D1495B;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+
+  --radius-md: 0.5rem;
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, .10);
+
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-xl: 1.5rem;
+  --text-3xl: 2.25rem;
+}
