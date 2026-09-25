@@ -27,3 +27,22 @@
   --text-xl: 1.5rem;
   --text-3xl: 2.25rem;
 }
+
+
+/* LAPIS 2 — semantik: peran */
+
+:root {
+  --color-bg: var(--pink-50);
+  --color-fg: var(--plum-900);
+
+  --color-surface: var(--neutral-50);
+  --color-border: var(--purple-300);
+
+  --color-primary: var(--plum-700);
+  --color-danger: var(--red-500);
+
+  --color-focus: var(--pink-100);
+
+  --card-pad: var(--space-4);
+  --section-gap: var(--space-6);
+}
