@@ -1,0 +1,32 @@
+/* Dasar: reset ringan dan tipografi */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  line-height: var(--tinggi-baris);
+  color: var(--warna-teks);
+  background: var(--warna-latar);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-judul);
+  line-height: 1.25;
+  margin: 0 0 var(--jarak-3);
+}
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.5rem; color: var(--warna-aksen); }
+h3 { font-size: 1.15rem; margin-top: var(--jarak-4); }
+
+p { margin: 0 0 var(--jarak-3); max-width: 65ch; }
+
+a { color: var(--warna-aksen); }
+
+img { display: block; max-width: 100%; height: auto; }
+
+:focus-visible {
+  outline: 3px solid var(--warna-sorot);
+  outline-offset: 2px;
+}

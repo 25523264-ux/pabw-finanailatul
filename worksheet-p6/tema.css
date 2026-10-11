@@ -1,0 +1,35 @@
+/* Tema: checkbox #tema mengganti warna lewat token */
+.pengalih-tema {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.pengalih-tema:focus-visible + .tombol-tema {
+  outline: 3px solid var(--warna-sorot);
+  outline-offset: 2px;
+}
+
+body:has(#tema:checked) {
+  --warna-latar: #1a0f1b;
+  --warna-permukaan: #271720;
+  --warna-lembut: #28132d;
+  --warna-teks: #e6efee;
+  --warna-teks-lembut: #9db5b3;
+  --warna-aksen: #7cc8c0;
+  --warna-aksen-gelap: #9ad9d2;
+  --warna-aksen-teks: #0f1b1b;
+  --warna-sorot: #e0b25a;
+  --warna-garis: #2a4140;
+
+  --warna-header: #301225;
+  --warna-header-teks: #f2f8f7;
+
+  --status-sudah-bg: #61486b;
+  --status-sudah-teks: #c7a8e6;
+  --status-belum-bg: #5a2238;
+  --status-belum-teks: #ffb8cf;
+  --status-sedang-bg: #5a4210;
+  --status-sedang-teks: #ffd98a;
+
+  --bayangan: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.25);
+}

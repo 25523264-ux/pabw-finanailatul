@@ -1,0 +1,44 @@
+/* Token: nilai dasar yang dipakai file CSS lain */
+:root {
+  /* warna: hijau teal (tinta) + emas pasir (sorotan) di atas kertas abu kehijauan */
+  --warna-latar: #f3f6f5;
+  --warna-permukaan: #ffffff;
+  --warna-lembut: #e5eeec;
+  --warna-teks: #2b1c25;
+  --warna-teks-lembut: #566b6c;
+  --warna-aksen: #5a1d54;
+  --warna-aksen-gelap: #401435;
+  --warna-aksen-teks: #ffffff;
+  --warna-sorot: #c4912f;
+  --warna-garis: #d8e3e1;
+
+  --warna-header: #401740;
+  --warna-header-teks: #f2f8f7;
+  --warna-header-nav: rgba(255, 255, 255, 0.14);
+
+  /* warna status baca */
+  --status-sudah-bg: #dcf0e4;
+  --status-sudah-teks: #6a1d5c;
+  --status-belum-bg: #fde3ea;
+  --status-belum-teks: #a3264f;
+  --status-sedang-bg: #fff0d2;
+  --status-sedang-teks: #86560a;
+
+  /* tipografi */
+  --font-judul: "Lora", Georgia, "Times New Roman", serif;
+  --font: "Nunito Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --tinggi-baris: 1.65;
+
+  /* jarak */
+  --jarak-1: 0.25rem;
+  --jarak-2: 0.5rem;
+  --jarak-3: 1rem;
+  --jarak-4: 1.5rem;
+  --jarak-5: 2.5rem;
+
+  /* bentuk */
+  --radius: 12px;
+  --bayangan: 0 1px 2px rgba(23, 64, 63, 0.06), 0 8px 20px rgba(23, 64, 63, 0.07);
+  --lebar-maks: 68rem;
+  --lebar-sisi: 13.5rem;
+}

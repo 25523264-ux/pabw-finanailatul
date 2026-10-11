@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koleksi Rak Buku Fina</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- urutan: token -> dasar -> tata letak -> komponen -> tema -> responsif -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="komponen.css">
+  <link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="responsif.css">
+</head>
+<script type="module" src="js/app.js"></script>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="header-baris">
+        <div class="judul-header">
+          <h1>Koleksi Rak Buku Fina</h1>
+        </div>
+
+        <nav aria-label="Navigasi utama">
+          <a href="#koleksi">Koleksi Buku</a>
+          <a href="#status">Status Baca</a>
+          <a href="#tambah-buku">Tambah Buku</a>
+        </nav>
+
+        <div class="pengaturan-tema">
+          <input type="checkbox" id="tema" class="pengalih-tema">
+          <label for="tema" class="tombol-tema">Tema gelap</label>
+        </div>
+      </div>
+    </header>
+
+    <main class="isi">
+
+      <aside class="sisi">
+        <h2>Menu</h2>
+        <nav aria-label="Navigasi samping">
+          <ul>
+            <li><a href="#koleksi">Koleksi Buku</a></li>
+            <li><a href="#status">Status Baca</a></li>
+            <li><a href="#tambah-buku">Tambah Buku</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <div class="utama">
+
+        <section id="koleksi">
+          <h2>Koleksi Buku Saya</h2>
+          <p>
+            Selamat datang di halaman rak buku saya. Halaman ini berisi
+            daftar buku yang saya miliki beserta status bacanya.
+          </p>
+
+          <div class="galeri">
+            <article class="kartu sorotan">
+              <div class="kartu__isi">
+                <figure>
+                  <img
+                    src="koleksi_buku.jpg"
+                    alt="Tumpukan dan deretan buku koleksi Fina"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                  >
+                  <figcaption>Koleksi buku yang saya miliki.</figcaption>
+                </figure>
+              </div>
+              <div class="kartu__kaki">
+                <strong>Rak Buku Fina</strong>
+                <span>3 buku tercatat</span>
+              </div>
+            </article>
+
+            <article class="kartu">
+              <div class="kartu__isi">
+                <h3>Ringkasan bacaan</h3>
+                <p>
+                  Dari tiga buku yang tercatat, dua sudah selesai dibaca
+                  dan satu masih menunggu giliran.
+                </p>
+              </div>
+              <div class="kartu__kaki">
+                <strong>Sudah dibaca: 2</strong>
+                <span>Belum dibaca: 1</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="papan">
+            <table>
+              <caption>Daftar buku yang saya miliki</caption>
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Judul Buku</th>
+                  <th scope="col">Penulis</th>
+                  <th scope="col">Tahun Terbit</th>
+                  <th scope="col">Status Baca</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Laskar Pelangi</td>
+                  <td>Andrea Hirata</td>
+                  <td>2005</td>
+                  <td><span class="status status--sudah">Sudah Dibaca</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Bumi</td>
+                  <td>Tere Liye</td>
+                  <td>2014</td>
+                  <td><span class="status status--sudah">Sudah Dibaca</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Filosofi Teras</td>
+                  <td>Henry Manampiring</td>
+                  <td>2018</td>
+                  <td><span class="status status--belum">Belum Dibaca</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="status">
+          <h2>Status Baca</h2>
+          <p>
+            Buku-buku di rak saya dikelompokkan berdasarkan status
+            bacanya.
+          </p>
+
+          <h3>Sudah Dibaca</h3>
+          <p>
+            <strong>Laskar Pelangi</strong> karya Andrea Hirata dan
+            <strong>Bumi</strong> karya Tere Liye sudah selesai saya baca.
+          </p>
+
+          <h3>Sedang Dibaca</h3>
+          <p>Saat ini belum ada buku yang sedang saya baca.</p>
+
+          <h3>Belum Dibaca</h3>
+          <p>
+            <strong>Filosofi Teras</strong> karya Henry Manampiring
+            masih menunggu giliran untuk dibaca.
+          </p>
+        </section>
+
+        <section id="tambah-buku">
+          <h2>Tambah Buku</h2>
+          <p>
+            Gunakan formulir berikut untuk mencatat buku yang ingin
+            ditambahkan ke rak buku.
+          </p>
+
+          <form action="#" method="post">
+            <div class="form-kolom">
+              <label for="judul">Judul Buku</label>
+              <input type="text" id="judul" name="judul" required>
+            </div>
+
+            <div class="form-kolom">
+              <label for="penulis">Penulis</label>
+              <input type="text" id="penulis" name="penulis" required>
+            </div>
+
+            <div class="form-kolom">
+              <label for="tahun">Tahun Terbit</label>
+              <input
+                type="number"
+                id="tahun"
+                name="tahun"
+                min="1900"
+                max="2026"
+                required
+              >
+            </div>
+
+            <div class="form-kolom">
+              <label for="status-baca">Status Baca</label>
+              <select id="status-baca" name="status-baca" required>
+                <option value="">-- Pilih Status --</option>
+                <option value="sudah-dibaca">Sudah Dibaca</option>
+                <option value="sedang-dibaca">Sedang Dibaca</option>
+                <option value="belum-dibaca">Belum Dibaca</option>
+              </select>
+            </div>
+
+            <button type="submit">Simpan Buku</button>
+          </form>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>Fina Nailatul 'Izzah | NIM: 25523264 | 2026</p>
+    </footer>
+
+  </div>
+</body>
+</html>

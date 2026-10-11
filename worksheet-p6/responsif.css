@@ -1,0 +1,22 @@
+/* Responsif: tablet dan ponsel */
+@media (max-width: 800px) {
+  .isi { grid-template-columns: 1fr; }
+
+  /* sidebar jadi baris menu di atas konten */
+  .sisi { position: static; }
+  .sisi ul { grid-auto-flow: column; grid-auto-columns: max-content; overflow-x: auto; }
+  .sisi h2 { display: none; }
+}
+
+@media (max-width: 520px) {
+  .page { padding: var(--jarak-3) var(--jarak-3) 0; }
+  header { padding: var(--jarak-3); }
+  h1 { font-size: 1.5rem; }
+  header nav { display: none; } /* menu sudah ada di sidebar */
+  .kartu__kaki { flex-direction: column; }
+  form { padding: var(--jarak-3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
