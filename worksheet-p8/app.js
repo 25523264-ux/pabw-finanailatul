@@ -88,8 +88,8 @@ const bukuBerikutnya = daftarBuku.find((buku) => buku.status === "belum-dibaca")
 // map: array baru dengan panjang sama
 const semuaJudul = daftarBuku.map((buku) => buku.judul);
 
-// sort mengubah array aslinya, jadi urutkan SALINANNYA saja
-const urutTahun = [...daftarBuku].sort((a, b) => a.tahun - b.tahun);
+// sort mengubah array aslinya, jadi urutkan SALINANNYA saja (terbaru dulu)
+const urutTerbaru = [...daftarBuku].sort((a, b) => b.tahun - a.tahun);
 
 /* =====================================================
    Menampilkan data ke halaman
@@ -169,15 +169,18 @@ console.table(sudahDibaca);                                   // subset hasil fi
 console.log(bukuBerikutnya);                                  // satu object dari find
 console.log(semuaJudul.length === daftarBuku.length);        // map: panjang sama → true
 
-console.table(urutTahun);                                     // salinan yang diurutkan
-console.log(daftarBuku[0].judul);                             // data asli tidak berubah urutannya
+console.table(urutTerbaru);                                   // salinan: 2018, 2014, 2005
+console.log(daftarBuku[0].judul);                             // tetap "Laskar Pelangi": data asli tidak berubah
 
 console.log(ubahKeAngka("2018") + 1);                         // 2019, bukan "20181"
 
 /* =====================================================
-   Hanya untuk memeriksa di Console (Lembar B dan C)
+   Hanya untuk memeriksa di Console (Lembar B, C, dan D)
    type="module" menyimpan variabel di dalam modul, jadi
    ketik `profil` di Console akan galat. Baris ini membukanya
    sementara. Hapus setelah pemeriksaan selesai.
    ===================================================== */
-Object.assign(window, { profil, daftarBuku, jumlahBuku, buatPerkenalan, formatKeahlian });
+Object.assign(window, {
+  profil, daftarBuku, jumlahBuku, buatPerkenalan, formatKeahlian,
+  sudahDibaca, belumDibaca, bukuBerikutnya, semuaJudul, urutTerbaru,
+});
