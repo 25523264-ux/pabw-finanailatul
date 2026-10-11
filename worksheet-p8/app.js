@@ -123,12 +123,14 @@ isiHtml("#isi-tabel", daftarBuku.map((buku, indeks) => buatBarisBuku(buku, indek
 
 // Kartu ringkasan
 isiTeks("#jumlah-buku", `${jumlahBuku} buku tercatat`);
+// let: nilainya diganti di tengah jalan bila ada buku yang belum dibaca
+let kalimatBerikutnya = "Semua buku sudah selesai dibaca.";
+if (bukuBerikutnya) {
+  kalimatBerikutnya = `Berikutnya yang menunggu giliran: ${bukuBerikutnya.judul}.`;
+}
 isiTeks(
   "#ringkasan-teks",
-  `Dari ${jumlahBuku} buku yang tercatat, ${sudahDibaca.length} sudah selesai dibaca. ` +
-    (bukuBerikutnya
-      ? `Berikutnya yang menunggu giliran: ${bukuBerikutnya.judul}.`
-      : "Semua buku sudah selesai dibaca.")
+  `Dari ${jumlahBuku} buku yang tercatat, ${sudahDibaca.length} sudah selesai dibaca. ${kalimatBerikutnya}`
 );
 isiTeks("#kaki-sudah", `Sudah dibaca: ${sudahDibaca.length}`);
 isiTeks("#kaki-belum", `Belum dibaca: ${belumDibaca.length}`);
