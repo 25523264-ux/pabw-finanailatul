@@ -53,9 +53,10 @@ function buatPerkenalan({ nama, peran }) {
 const formatKeahlian = (daftar) => daftar.join(" · ");
 
 // 3. Menyusun satu baris tabel HTML dari satu buku
-function buatBarisBuku(buku, nomor) {
-  const label = labelStatus[buku.status] ?? "Status belum diketahui";
-  const kelas = kelasStatus[buku.status] ?? "";
+//    Tabel label dan kelas dikirim sebagai parameter, bukan dibaca dari luar fungsi
+function buatBarisBuku(buku, nomor, daftarLabel, daftarKelas) {
+  const label = daftarLabel[buku.status] ?? "Status belum diketahui";
+  const kelas = daftarKelas[buku.status] ?? "";
 
   return `
     <tr>
@@ -118,7 +119,7 @@ document.title = judulHalaman;
 isiTeks("#judul-halaman", judulHalaman);
 
 // Tabel buku dibuat dari array, bukan ditulis tangan
-isiHtml("#isi-tabel", daftarBuku.map((buku, indeks) => buatBarisBuku(buku, indeks + 1)).join(""));
+isiHtml("#isi-tabel", daftarBuku.map((buku, indeks) => buatBarisBuku(buku, indeks + 1, labelStatus, kelasStatus)).join(""));
 
 // Kartu ringkasan
 isiTeks("#jumlah-buku", `${jumlahBuku} buku tercatat`);
@@ -151,9 +152,9 @@ isiTeks("#perkenalan", buatPerkenalan(profil));
 isiTeks("#keahlian-teks", `Keahlian: ${formatKeahlian(profil.keahlian)}`);
 isiTeks("#footer-teks", `${profil.nama} | NIM: ${profil.nim} | ${profil.tahun}`);
 
-//Pemeriksaan di Console (untuk tabel D.4 dan tangkapan layar)
-   
-   
+/* =====================================================
+   Pemeriksaan di Console (untuk tabel D.4 dan tangkapan layar)
+   ===================================================== */
 
 console.log(typeof profil.nama);                              // "string"
 console.log(typeof jumlahBuku);                               // "number"
