@@ -1,9 +1,13 @@
-// js/dom.js — Worksheet P9 · Lembar A-B · Fina Nailatul 'Izzah · 25523264
+// js/dom.js — Worksheet P9 · Lembar A-C · Fina Nailatul 'Izzah · 25523264
 // app.js menyimpan data dan fungsi; berkas ini yang menyentuh halaman.
 
 // Data dari app.js (app.js memakai "export" di depan ketiganya)
 import { daftarBuku, labelStatus, kelasStatus } from "./app.js";
 
+/* =====================================================
+   LEMBAR A — Memilih elemen (tabel A.2)
+   Ejaan id harus sama persis dengan profil.html.
+   ===================================================== */
 
 // Daftar buku: <tbody> tempat baris-baris buku akan digambar
 const isiTabel = document.querySelector("#isi-tabel");
@@ -39,7 +43,11 @@ if (tombolFilter.length === 0) {
   console.error('Tidak ada tombol di dalam "#filter". Cek profil.html.');
 }
 
-
+/* =====================================================
+   LEMBAR B — Membangun elemen dari data
+   createElement → textContent → append
+   (tidak ada innerHTML: teks dari pengguna tidak dibaca sebagai HTML)
+   ===================================================== */
 
 // Satu item array → satu baris <tr>
 function buatBaris(buku, nomor) {
@@ -74,12 +82,52 @@ function buatBaris(buku, nomor) {
 function render(daftar) {
   isiTabel.textContent = "";                 // 1. kosongkan dulu
 
+  if (daftar.length === 0) {                 // 2. periksa kondisi kosong
+    pesanKosong.hidden = false;
+    return;
+  }
+  pesanKosong.hidden = true;
+
   const fragmen = document.createDocumentFragment();   // wadah sementara
   daftar.forEach((buku, indeks) => fragmen.append(buatBaris(buku, indeks + 1)));
 
-  isiTabel.append(fragmen);                  // 2. halaman digambar sekali
+  isiTabel.append(fragmen);                  // 3. halaman digambar sekali
 }
 
 render(daftarBuku);
 
-Object.assign(window, { ...elemenYangDiisi, tombolFilter, buatBaris, render });
+/* =====================================================
+   LEMBAR C — Satu listener pada parent untuk semua tombol
+   ===================================================== */
+
+// Tombol yang aktif ditandai dengan SATU class; warnanya diatur di CSS
+function tandaiTombolAktif(tombolAktif) {
+  tombolFilter.forEach((tombol) => {
+    tombol.classList.toggle("active", tombol === tombolAktif);
+  });
+}
+
+// Listener dipasang SEKALI, di luar render, pada elemen induk (#filter)
+barisFilter.addEventListener("click", (event) => {
+  const tombol = event.target.closest("button");
+  if (!tombol) return;                       // klik di luar tombol, abaikan
+
+  const kategori = tombol.dataset.category;  // dari data-category di HTML
+  const terpilih = daftarBuku.filter(
+    (buku) => kategori === "all" || buku.status === kategori
+  );
+
+  render(terpilih);
+  tandaiTombolAktif(tombol);
+});
+
+// Keadaan awal: tombol "Semua" aktif
+tandaiTombolAktif(barisFilter.querySelector('[data-category="all"]'));
+
+/* =====================================================
+   Hanya untuk memeriksa di Console (Lembar A, B, dan C)
+   type="module" menyimpan variabel di dalam modul, jadi mengetik
+   `isiTabel` di Console akan galat. Baris ini membukanya sementara.
+   Hapus setelah pemeriksaan selesai.
+   ===================================================== */
+Object.assign(window, { ...elemenYangDiisi, tombolFilter, buatBaris, render, tandaiTombolAktif });

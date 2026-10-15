@@ -170,3 +170,15 @@ button:hover { background: var(--warna-aksen-gelap); }
   gap: var(--jarak-2);
   margin-bottom: var(--jarak-3);
 }
+
+#filter button {
+  padding: 0.4rem 1.1rem;
+  color: var(--warna-aksen);
+  background: transparent;
+  border: 2px solid var(--warna-aksen);
+}
+#filter button:hover { background: var(--warna-lembut); }
+#filter button.active {
+  color: var(--warna-aksen-teks);
+  background: var(--warna-aksen);
+}
