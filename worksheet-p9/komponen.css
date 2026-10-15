@@ -182,3 +182,18 @@ button:hover { background: var(--warna-aksen-gelap); }
   color: var(--warna-aksen-teks);
   background: var(--warna-aksen);
 }
+
+/* pesan galat formulir (Pertemuan 9) */
+.galat {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--status-belum-teks);
+}
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--status-belum-teks);
+}
+
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button:disabled:hover { background: var(--warna-aksen); }

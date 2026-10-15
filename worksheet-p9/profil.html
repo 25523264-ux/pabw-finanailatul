@@ -176,41 +176,46 @@
             ditambahkan ke rak buku.
           </p>
 
-          <form id="form-buku" action="#" method="post">
-            <div class="form-kolom">
-              <label for="judul">Judul Buku</label>
-              <input type="text" id="judul" name="judul" required>
-            </div>
+          <form id="form-buku" action="#" method="post" novalidate>
+  <div class="form-kolom">
+    <label for="judul">Judul Buku</label>
+    <input type="text" id="judul" name="judul" required aria-describedby="galat-judul">
+    <p class="galat" id="galat-judul" hidden></p>
+  </div>
 
-            <div class="form-kolom">
-              <label for="penulis">Penulis</label>
-              <input type="text" id="penulis" name="penulis" required>
-            </div>
+  <div class="form-kolom">
+    <label for="penulis">Penulis</label>
+    <input type="text" id="penulis" name="penulis" required aria-describedby="galat-penulis">
+    <p class="galat" id="galat-penulis" hidden></p>
+  </div>
 
-            <div class="form-kolom">
-              <label for="tahun">Tahun Terbit</label>
-              <input
-                type="number"
-                id="tahun"
-                name="tahun"
-                min="1900"
-                max="2026"
-                required
-              >
-            </div>
+  <div class="form-kolom">
+    <label for="tahun">Tahun Terbit</label>
+    <input
+      type="number"
+      id="tahun"
+      name="tahun"
+      min="1900"
+      max="2026"
+      required
+      aria-describedby="galat-tahun"
+    >
+    <p class="galat" id="galat-tahun" hidden></p>
+  </div>
 
-            <div class="form-kolom">
-              <label for="status-baca">Status Baca</label>
-              <select id="status-baca" name="status-baca" required>
-                <option value="">-- Pilih Status --</option>
-                <option value="sudah-dibaca">Sudah Dibaca</option>
-                <option value="sedang-dibaca">Sedang Dibaca</option>
-                <option value="belum-dibaca">Belum Dibaca</option>
-              </select>
-            </div>
+  <div class="form-kolom">
+    <label for="status-baca">Status Baca</label>
+    <select id="status-baca" name="status-baca" required aria-describedby="galat-status">
+      <option value="">-- Pilih Status --</option>
+      <option value="sudah-dibaca">Sudah Dibaca</option>
+      <option value="sedang-dibaca">Sedang Dibaca</option>
+      <option value="belum-dibaca">Belum Dibaca</option>
+    </select>
+    <p class="galat" id="galat-status" hidden></p>
+  </div>
 
-            <button type="submit">Simpan Buku</button>
-          </form>
+  <button type="submit">Simpan Buku</button>
+</form>
         </section>
 
       </div>
