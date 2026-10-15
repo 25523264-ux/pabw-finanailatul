@@ -1,3 +1,19 @@
+## Pertemuan 9 — DOM, Event, dan Interaktivitas
+
+**Yang dikerjakan**
+- Lembar A: memilih elemen dengan `querySelector` dan `querySelectorAll`, disimpan di `js/dom.js`
+- Lembar B: daftar buku dibangun dari data dengan `createElement`, `textContent`, dan `append`
+- Lembar C: tombol filter dengan satu listener pada parent (event delegation)
+- Lembar D: fungsi `render`, validasi form dengan pesan galat per field
+- Lembar E: percobaan membaca gejala (selector null, listener ganda, kondisi kosong)
+
+**Pengungkapan AI**
+- Dibantu AI (Claude): penulisan dan penjelasan kode di `js/dom.js`, penambahan id dan elemen di `profil.html`
+- Saya kerjakan sendiri: menjalankan dan menguji di Chrome, melakukan percobaan Lembar E dan mengambil tangkapan layarnya, mengisi tabel dan hasil pengamatan di worksheet, serta exit ticket dan penilaian diri di Lembar F.
+- Saya memahami fungsi setiap bagian kode dan bisa menjelaskannya.
+
+
+
 ## Pertemuan 4 - Design token halaman profil
 
 - Berkas gaya yang akan dibuat: `tokens.css`, `base.css`, `layout.css`, `komponen.css`, `tema.css`
