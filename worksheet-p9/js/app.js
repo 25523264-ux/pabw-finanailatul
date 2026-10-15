@@ -119,7 +119,7 @@ isiTeks(
 isiTeks("#kaki-sudah", `Sudah dibaca: ${sudahDibaca.length}`);
 isiTeks("#kaki-belum", `Belum dibaca: ${belumDibaca.length}`);
 
-// Bagian Status Baca
+
 isiTeks(
   "#status-sudah",
   sudahDibaca.length > 0 ? formatJudul(sudahDibaca) : "Belum ada buku yang selesai dibaca."
