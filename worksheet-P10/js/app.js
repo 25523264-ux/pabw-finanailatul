@@ -1,6 +1,9 @@
 // js/app.js — Worksheet P9 · Fina Nailatul 'Izzah · 25523264
 // Isi halaman tidak lagi ditulis di HTML: semuanya berasal dari data di berkas ini.
-   import { load } from "./api.js";
+
+// P10: lapisan data ada di js/api.js
+import { load } from "./api.js";
+
 
 // Identitas: satu object. Cukup diubah di sini bila ada yang berganti.
 const profil = {
@@ -159,7 +162,30 @@ console.log(daftarBuku[0].judul);
 console.log(ubahKeAngka("2018") + 1);                         
 
 
+// P10 B.2 — Tampilkan kesalahan di halaman, bukan hanya di Console
+function tampilkanGalat(pesan) {
+  const elemen = ambilElemen("#pesan-galat");
+  if (elemen === null) return;
+  elemen.textContent = pesan;
+  elemen.hidden = false;
+}
+
+// P10 B.2 — try/catch kedua: di pemanggil, menangkap error yang dilempar load()
+async function muatDariApi() {
+  try {
+    const data = await load();
+    console.log("data dari API:", data.docs);
+  } catch (error) {
+    tampilkanGalat("Gagal memuat data: " + error.message);
+  }
+}
+
+muatDariApi();
+
+
 Object.assign(window, {
   profil, daftarBuku, jumlahBuku, buatPerkenalan, formatKeahlian,
-  sudahDibaca, belumDibaca, bukuBerikutnya, semuaJudul, urutTerbaru, load,
+  sudahDibaca, belumDibaca, bukuBerikutnya, semuaJudul, urutTerbaru,
+  load,          // P10: supaya bisa dipanggil dari Console
+  muatDariApi,   // P10: untuk menguji skenario jaringan mati
 });
