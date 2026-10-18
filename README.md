@@ -1,3 +1,34 @@
+# Worksheet P10 — JavaScript Asinkron: fetch, Promise, dan JSON
+
+Fina Nailatul 'Izzah · NIM 25523264 · Pengembangan Aplikasi Berbasis Web (SIF302)
+
+## Isi
+Halaman Koleksi Rak Buku mengambil daftar buku dari API publik Open Library
+(`https://openlibrary.org/search.json`, tanpa kunci akses) dan menampilkannya
+sebagai kartu. Empat keadaan antarmuka ditangani: memuat, berhasil, gagal, kosong.
+
+## Struktur
+- `js/api.js`  — lapisan data: `fetch`, pemeriksaan `response.ok`, `try/catch`, fungsi `load()` yang diekspor
+- `js/app.js`  — memanggil `load()`, merender kartu, menampilkan pesan galat
+- `js/dom.js`  — tabel buku dan formulir (dari Pertemuan 9, tidak diubah)
+- `bukti/`     — tangkapan layar keempat keadaan
+
+## Cara menjalankan
+Buka lewat server lokal (misalnya Live Server atau `python3 -m http.server 8000`),
+bukan klik ganda, karena memakai modul JavaScript.
+
+## Pengungkapan AI
+- Dibantu AI (Claude): penyusunan kode `js/api.js`
+  serta penjelasan konsep (`response.ok`, `async/await`, `try/catch`, empat keadaan).
+- Saya kerjakan sendiri: penyusunan kode menyalin dan menyiapkan folder, menjalankan semua pengujian
+  di browser (Console dan Network), mencatat status, `response.ok`, dan Content-Type,
+  mengambil tangkapan layar, mengisi worksheet, dan commit ke GitHub.
+
+## Catatan
+Alamat API ditulis sekali di `js/api.js` (`ALAMAT_API`).
+
+
+
 ## Pertemuan 9 — DOM, Event, dan Interaktivitas
 
 **Yang dikerjakan**
