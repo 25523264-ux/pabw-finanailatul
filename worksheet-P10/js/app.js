@@ -170,11 +170,25 @@ function tampilkanGalat(pesan) {
   elemen.hidden = false;
 }
 
-// P10 B.2 — try/catch kedua: di pemanggil, menangkap error yang dilempar load()
+// P10 C.1 — Dua arah JSON
+// Arah 1: teks → nilai (membaca). Hasilnya objek yang kuncinya bisa dijangkau.
+const teksBuku = '{"judul":"Laskar Pelangi","tahun":2005}';
+const objekBuku = JSON.parse(teksBuku);
+console.log(objekBuku.judul, typeof objekBuku);        // Laskar Pelangi object
+
+// Arah 2: nilai → teks (mengirim atau menyimpan). Hasilnya string.
+const teksKembali = JSON.stringify(daftarBuku[0]);
+console.log(teksKembali, typeof teksKembali);          // {"judul":...} string
+
+// P10 B.2 + C.3 — try/catch kedua di pemanggil, dan data diperiksa bentuknya dulu
 async function muatDariApi() {
   try {
-    const data = await load();
-    console.log("data dari API:", data.docs);
+    const data = await load();     // json() di api.js: teks dari jaringan → objek
+
+    console.log(data);             // C.3: lihat bentuknya SEBELUM menulis kode render
+    console.table(data.docs);      // daftar bukunya dalam bentuk tabel
+
+    window.dataApi = data;         // supaya bisa diperiksa dari Console
   } catch (error) {
     tampilkanGalat("Gagal memuat data: " + error.message);
   }
@@ -188,4 +202,5 @@ Object.assign(window, {
   sudahDibaca, belumDibaca, bukuBerikutnya, semuaJudul, urutTerbaru,
   load,          // P10: supaya bisa dipanggil dari Console
   muatDariApi,   // P10: untuk menguji skenario jaringan mati
+  objekBuku, teksKembali,   // P10 C.1
 });
