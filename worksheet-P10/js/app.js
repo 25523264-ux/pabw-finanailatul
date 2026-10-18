@@ -179,11 +179,11 @@ function sembunyikanGalat() {
 // Arah 1: teks → nilai (membaca). Hasilnya objek yang kuncinya bisa dijangkau.
 const teksBuku = '{"judul":"Laskar Pelangi","tahun":2005}';
 const objekBuku = JSON.parse(teksBuku);
-console.log(objekBuku.judul, typeof objekBuku);        // Laskar Pelangi object
+console.log(objekBuku.judul, typeof objekBuku);       
 
 // Arah 2: nilai → teks (mengirim atau menyimpan). Hasilnya string.
 const teksKembali = JSON.stringify(daftarBuku[0]);
-console.log(teksKembali, typeof teksKembali);          // {"judul":...} string
+console.log(teksKembali, typeof teksKembali);          
 
 
 /* =====================================================
