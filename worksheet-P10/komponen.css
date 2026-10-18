@@ -1,0 +1,199 @@
+/* Komponen: menu, kartu, tabel, status, formulir, tombol */
+
+/* tautan navigasi di header */
+header nav a {
+  padding: var(--jarak-1) var(--jarak-3);
+  border-radius: 999px;
+  background: var(--warna-header-nav);
+  color: var(--warna-header-teks);
+  font-weight: 600;
+  text-decoration: none;
+}
+header nav a:hover { background: rgba(255, 255, 255, 0.28); }
+
+/* tautan sidebar */
+.sisi a {
+  display: block;
+  padding: var(--jarak-1) var(--jarak-2);
+  border-left: 3px solid transparent;
+  border-radius: 4px 8px 8px 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.sisi a:hover {
+  background: var(--warna-lembut);
+  border-left-color: var(--warna-sorot);
+}
+
+/* kartu */
+.kartu {
+  display: flex;
+  flex-direction: column;
+  background: var(--warna-permukaan);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+  overflow: hidden;
+}
+.kartu.sorotan { border-color: var(--warna-sorot); }
+
+.kartu__isi { flex: 1; padding: var(--jarak-3); }
+.kartu__isi h3 { margin-top: 0; }
+.kartu__isi p:last-child { margin-bottom: 0; }
+
+.kartu__kaki {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--jarak-2);
+  padding: var(--jarak-2) var(--jarak-3);
+  background: var(--warna-lembut);
+  font-size: 0.9rem;
+}
+
+figure { margin: 0; }
+figure img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 8px;
+}
+figcaption {
+  margin-top: var(--jarak-2);
+  font-size: 0.9rem;
+  color: var(--warna-teks-lembut);
+}
+
+/* tabel */
+.papan {
+  overflow-x: auto;
+  background: var(--warna-permukaan);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+caption {
+  padding: var(--jarak-3) var(--jarak-3) var(--jarak-2);
+  text-align: left;
+  font-family: var(--font-judul);
+  font-weight: 600;
+  color: var(--warna-aksen);
+}
+th, td {
+  padding: 0.7rem var(--jarak-3);
+  text-align: left;
+  border-bottom: 1px solid var(--warna-garis);
+}
+thead th {
+  background: var(--warna-aksen);
+  color: var(--warna-aksen-teks);
+  white-space: nowrap;
+}
+tbody th { font-weight: 700; }
+tbody tr:nth-child(even) { background: var(--warna-latar); }
+tbody tr:last-child > * { border-bottom: 0; }
+
+/* label status baca */
+.status {
+  display: inline-block;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.status--sudah  { background: var(--status-sudah-bg);  color: var(--status-sudah-teks); }
+.status--belum  { background: var(--status-belum-bg);  color: var(--status-belum-teks); }
+.status--sedang { background: var(--status-sedang-bg); color: var(--status-sedang-teks); }
+
+/* formulir */
+form {
+  max-width: 30rem;
+  padding: var(--jarak-4);
+  background: var(--warna-permukaan);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+}
+
+.form-kolom { display: grid; gap: var(--jarak-1); margin-bottom: var(--jarak-3); }
+.form-kolom label { font-weight: 700; }
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  color: var(--warna-teks);
+  background: var(--warna-latar);
+  border: 1px solid var(--warna-garis);
+  border-radius: 8px;
+}
+input:focus, select:focus {
+  border-color: var(--warna-sorot);
+  background: var(--warna-permukaan);
+}
+
+/* tombol */
+button {
+  padding: 0.65rem 1.5rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--warna-aksen-teks);
+  background: var(--warna-aksen);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { background: var(--warna-aksen-gelap); }
+
+.tombol-tema {
+  display: inline-block;
+  padding: var(--jarak-1) var(--jarak-3);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--warna-header-teks);
+  background: var(--warna-header-nav);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.tombol-tema:hover { background: rgba(255, 255, 255, 0.28); }
+
+/* baris tombol filter (Pertemuan 9) */
+#filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--jarak-2);
+  margin-bottom: var(--jarak-3);
+}
+
+#filter button {
+  padding: 0.4rem 1.1rem;
+  color: var(--warna-aksen);
+  background: transparent;
+  border: 2px solid var(--warna-aksen);
+}
+#filter button:hover { background: var(--warna-lembut); }
+#filter button.active {
+  color: var(--warna-aksen-teks);
+  background: var(--warna-aksen);
+}
+
+/* pesan galat formulir (Pertemuan 9) */
+.galat {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--status-belum-teks);
+}
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--status-belum-teks);
+}
+
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button:disabled:hover { background: var(--warna-aksen); }

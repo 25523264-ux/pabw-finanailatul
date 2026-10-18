@@ -1,0 +1,71 @@
+/* Tata letak: halaman, header, sidebar + konten, footer */
+.page {
+  max-width: var(--lebar-maks);
+  margin-inline: auto;
+  padding: var(--jarak-4) var(--jarak-4) 0;
+}
+
+/* header: pita teal */
+header {
+  position: relative;
+  overflow: hidden;
+  padding: var(--jarak-4);
+  background: var(--warna-header);
+  color: var(--warna-header-teks);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+}
+.header-baris {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--jarak-3);
+}
+.judul-header h1 { margin: 0; color: var(--warna-header-teks); }
+
+header nav { display: flex; flex-wrap: wrap; gap: var(--jarak-2); }
+
+/* sidebar kiri + konten utama */
+.isi {
+  display: grid;
+  grid-template-columns: var(--lebar-sisi) minmax(0, 1fr);
+  gap: var(--jarak-4);
+  align-items: start;
+  padding-block: var(--jarak-4);
+}
+
+.sisi {
+  position: sticky;
+  top: var(--jarak-3);
+  padding: var(--jarak-3);
+  background: var(--warna-permukaan);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+}
+.sisi h2 { font-size: 1.1rem; margin-bottom: var(--jarak-2); }
+.sisi ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--jarak-1); }
+
+.utama section {
+  padding-block: var(--jarak-4);
+  border-top: 1px solid var(--warna-garis);
+}
+.utama section:first-child { border-top: 0; padding-top: 0; }
+
+/* galeri kartu */
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--jarak-3);
+  margin-bottom: var(--jarak-4);
+}
+
+footer {
+  padding: var(--jarak-4) 0;
+  border-top: 1px solid var(--warna-garis);
+  color: var(--warna-teks-lembut);
+  font-size: 0.9rem;
+  text-align: center;
+}
+footer p { margin: 0 auto; }
