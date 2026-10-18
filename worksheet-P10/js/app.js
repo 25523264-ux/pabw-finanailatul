@@ -170,6 +170,11 @@ function tampilkanGalat(pesan) {
   elemen.hidden = false;
 }
 
+function sembunyikanGalat() {
+  const elemen = ambilElemen("#pesan-galat");
+  if (elemen !== null) elemen.hidden = true;
+}
+
 // P10 C.1 — Dua arah JSON
 // Arah 1: teks → nilai (membaca). Hasilnya objek yang kuncinya bisa dijangkau.
 const teksBuku = '{"judul":"Laskar Pelangi","tahun":2005}';
@@ -180,17 +185,91 @@ console.log(objekBuku.judul, typeof objekBuku);        // Laskar Pelangi object
 const teksKembali = JSON.stringify(daftarBuku[0]);
 console.log(teksKembali, typeof teksKembali);          // {"judul":...} string
 
-// P10 B.2 + C.3 — try/catch kedua di pemanggil, dan data diperiksa bentuknya dulu
+
+/* =====================================================
+   P10 LEMBAR D — Data dari jaringan tampil di halaman
+   Pengambilan data ada di api.js. Berkas ini hanya menggambar.
+   ===================================================== */
+
+const wadahApi = ambilElemen("#hasil-api");     // kontainer kartu
+const statusApi = ambilElemen("#status-api");   // teks untuk keadaan memuat / kosong
+
+function tampilkanStatusApi(teks) {
+  statusApi.textContent = teks;
+  statusApi.hidden = false;
+}
+
+function sembunyikanStatusApi() {
+  statusApi.hidden = true;
+}
+
+// D.1 — Satu item array → satu kartu. Pakai textContent, bukan innerHTML,
+// karena isinya datang dari jaringan.
+function buatKartuApi(buku) {
+  const kartu = document.createElement("article");
+  kartu.className = "kartu";
+
+  const isi = document.createElement("div");
+  isi.className = "kartu__isi";
+
+  const judul = document.createElement("h3");
+  judul.textContent = buku.title ?? "Tanpa judul";
+
+  const penulis = document.createElement("p");
+  penulis.textContent = `Penulis: ${buku.author_name?.join(", ") ?? "-"}`;
+
+  isi.append(judul, penulis);
+
+  const kaki = document.createElement("div");
+  kaki.className = "kartu__kaki";
+
+  const tahun = document.createElement("strong");
+  tahun.textContent = `Terbit: ${buku.first_publish_year ?? "-"}`;
+
+  const sumber = document.createElement("span");
+  sumber.textContent = "Open Library";
+
+  kaki.append(tahun, sumber);
+
+  kartu.append(isi, kaki);
+  return kartu;
+}
+
+// D.1 — Menggambar seluruh daftar. Tiga tugas tetap, urutannya tidak boleh ditukar.
+function renderApi(daftar) {
+  wadahApi.textContent = "";                    // 1. kosongkan dulu (kartu tidak berlipat)
+
+  if (daftar.length === 0) {                    // 2. keadaan KOSONG
+    tampilkanStatusApi("Belum ada buku yang ditemukan.");
+    return;
+  }
+  sembunyikanStatusApi();
+
+  const fragmen = document.createDocumentFragment();   // wadah sementara
+  daftar.forEach((buku) => fragmen.append(buatKartuApi(buku)));
+
+  wadahApi.append(fragmen);                     // 3. halaman digambar sekali
+}
+
+// D.2 — Empat keadaan antarmuka: memuat, berhasil, gagal, kosong
 async function muatDariApi() {
+  if (wadahApi === null || statusApi === null) return;   // HTML belum lengkap
+
+  sembunyikanGalat();
+  wadahApi.textContent = "";
+  tampilkanStatusApi("Memuat data dari Open Library…");   // keadaan MEMUAT
+
   try {
-    const data = await load();     // json() di api.js: teks dari jaringan → objek
+    const data = await load();                  // api.js: json() ada di sana
 
-    console.log(data);             // C.3: lihat bentuknya SEBELUM menulis kode render
-    console.table(data.docs);      // daftar bukunya dalam bentuk tabel
+    console.log(data);                          // C.3: bentuk data
+    console.table(data.docs);
+    window.dataApi = data;
 
-    window.dataApi = data;         // supaya bisa diperiksa dari Console
+    renderApi(data.docs ?? []);                 // keadaan BERHASIL atau KOSONG
   } catch (error) {
-    tampilkanGalat("Gagal memuat data: " + error.message);
+    sembunyikanStatusApi();
+    tampilkanGalat("Gagal memuat data: " + error.message);   // keadaan GAGAL
   }
 }
 
@@ -203,4 +282,5 @@ Object.assign(window, {
   load,          // P10: supaya bisa dipanggil dari Console
   muatDariApi,   // P10: untuk menguji skenario jaringan mati
   objekBuku, teksKembali,   // P10 C.1
+  renderApi,     // P10 D: renderApi([]) untuk melihat keadaan kosong
 });
